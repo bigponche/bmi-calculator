@@ -42,3 +42,27 @@ def get_ideal_weight(height, system):
         raise ValueError('Choose metric or imperial')
     
     return (min_weight, max_weight)
+
+def get_valid_number(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value <= 0:
+                print("Value must be greater than zero.")
+            else:
+                return value
+        except ValueError:
+            print('Enter a valid number')
+            
+def get_valid_system():
+    
+    while True:
+        system = input('Enter a valid system: ')
+        clean = system.lower().strip()
+        if clean == 'metric':
+            return clean
+        elif clean == 'imperial':
+            return clean
+        else:
+            print('That system is not valid')
+            
